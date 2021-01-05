@@ -1,1 +1,1 @@
-web: gunicorn first_step_3:__hug_wsgi__
+web: gunicorn app:__hug_wsgi__
