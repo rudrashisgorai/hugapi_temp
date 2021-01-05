@@ -1,7 +1,7 @@
 import hug
 import requests
 
-@hug.get('/')
+@hug.get('/temp')
 def temp(city: hug.types.text ):
     key = '5eb8acfd55b37163529efa9cbd1acbfb'
     try:
@@ -11,6 +11,11 @@ def temp(city: hug.types.text ):
         call = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={key}"
         data = requests.get(call)
         city_data = data.json()
-        return f"<h1>Temperature in {city_data['name']} is {round(city_data['main']['temp']-273)}</h1>"
+        return { "City":{city_data['name']},
+                "Temperature" :{round(city_data['main']['temp']-273)}
+        }
     except:
-        return "<h1>try again</h1>"
+        return {
+            "City" : None,
+            "Temperature" : None
+        }
