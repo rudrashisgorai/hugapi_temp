@@ -1,1 +1,1 @@
-web: gunicorn app:gettingstarted.wsgi
+web: gunicorn first_step_3:__hug_wsgi__
