@@ -1,9 +1,10 @@
 import hug
 import requests
+import os
 
 @hug.get('/temp')
 def temp(city: hug.types.text ):
-    key = '5eb8acfd55b37163529efa9cbd1acbfb'
+    key = os.environ.get('SECRET_KEY')
     try:
         if city == None :
             city = 'Chicago'
